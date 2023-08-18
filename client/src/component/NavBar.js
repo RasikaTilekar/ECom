@@ -1,16 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Grid, AppBar, Box, Toolbar, IconButton, Typography, Button } from '@mui/material';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
+import { useTranslation } from 'react-i18next';
+
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Badge from '@mui/material/Badge'
 import { useNavigate } from 'react-router-dom'
-import ShoppingCartSharpIcon from '@mui/icons-material/ShoppingCartSharp';
+
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCategery } from '../Store/categerySlice';
+import ShoppingCart from './ShoppingCart';
+import LangugeSelection from './LangugeSelection';
 
 
 const NavBar = () => {
@@ -21,6 +25,12 @@ const NavBar = () => {
     const dispatch = useDispatch();
     const category = useSelector(state => state.category.data)
     const wishlistdata = useSelector(state => state.wishlist);
+
+    const { t } = useTranslation();
+
+
+
+    console.log("navbar rendered")
 
     useEffect(() => {
         dispatch(getCategery());
@@ -54,26 +64,27 @@ const NavBar = () => {
 
                     <Button variant='Text' onClick={productsHandller}>
                         <Typography sx={{ typography: { sm: 'body1', xs: 'body2' } }}>
-                            All Products
+                            {t('allproducts')}
                         </Typography>
                     </Button>
 
                     <Box sx={{ flexGrow: 1 }}></Box>
+                    <Box sx={{ minWidth: 120, color: "white", marginBlock: "1%" }}>
+                        <LangugeSelection />
+                    </Box>
                     <IconButton color="inherit" onClick={wishlistHandller}  >
                         <Badge badgeContent=' ' variant="dot" color='error' invisible={wishlistdata.length <= 0}>
                             <FavoriteBorderIcon />
                         </Badge>
                     </IconButton>
                     <IconButton color="inherit" onClick={cartHandller}>
-                        <Badge badgeContent={cartItemCount.length} style={{ backgroundColor: "black", color: "#fdd931" }}>
-                            <ShoppingCartSharpIcon />
-                        </Badge>
+                        <ShoppingCart cartItemCountLength={cartItemCount.length} />
                     </IconButton>
                 </Toolbar>
                 <Box sx={{ display: { xs: 'none', sm: 'flex' }, alignItems: 'center', backgroundColor: "#232f3e", color: "white", }}>
                     <Grid container style={{ display: { xs: 'flex', md: 'none' }, backgroundColor: "#232f3e", color: "white", justifyContent: "flex-start", position: "relative" }}>
                         {category.length > 0 ? category.map((item, index) => <Grid item key={index}><Button variant='Text' onClick={() => categoryHandller(item)}>
-                            {item}
+                            {t(`${item}`)}
                         </Button></Grid>) : ''}
                     </Grid>
                 </Box>
@@ -85,11 +96,11 @@ const NavBar = () => {
                                 aria-controls="panel1a-content"
                                 id="panel1a-header"
                             >
-                                <Typography>Category</Typography>
+                                <Typography>{t('Category')}</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
-                                {category.length > 0 ? category.map((item, index) => <Grid item key={index}><Button variant='Text' onClick={() => categoryHandller(item)}>
-                                    {item}
+                                {category.length > 0 ? category.map((item, index) => <Grid item key={index}><Button variant='Text' onClick={() => categoryHandller(item)} style={{ textTransform: "none" }}>
+                                    {t(`${item}`)}
                                 </Button></Grid>) : ''}
                             </AccordionDetails>
                         </Accordion>

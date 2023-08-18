@@ -18,7 +18,7 @@ function Products() {
     }, [])
 
     return (
-        <Grid container sx={{ display: 'flex', justifyContent: 'center', marginTop: '5%' }}>
+        <Grid container id="main" sx={{ display: 'flex', justifyContent: 'center', marginTop: '5%' }}>
             {data?.length > 0
                 ? data.map(item => {
 
