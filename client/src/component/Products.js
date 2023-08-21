@@ -18,11 +18,7 @@ function Products() {
     }, [])
 
     return (
-<<<<<<< HEAD
         <Grid container id="main" sx={{ display: 'flex', justifyContent: 'center', marginTop: '5%' }}>
-=======
-        <Grid container sx={{ display: 'flex', justifyContent: 'center', marginTop: '5%' }}>
->>>>>>> 556e8886229930c99aa5685fe9f9e97519aa12b1
             {data?.length > 0
                 ? data.map(item => {
 

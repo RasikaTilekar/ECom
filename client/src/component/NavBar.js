@@ -1,34 +1,28 @@
-<<<<<<< HEAD
+
 import React, { useEffect, useState } from 'react';
-=======
-import React, { useEffect } from 'react';
->>>>>>> 556e8886229930c99aa5685fe9f9e97519aa12b1
+
 import { Grid, AppBar, Box, Toolbar, IconButton, Typography, Button } from '@mui/material';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
-<<<<<<< HEAD
-import { useTranslation } from 'react-i18next';
 
-=======
->>>>>>> 556e8886229930c99aa5685fe9f9e97519aa12b1
+import { useTranslation } from 'react-i18next';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Badge from '@mui/material/Badge'
 import { useNavigate } from 'react-router-dom'
-<<<<<<< HEAD
 
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCategery } from '../Store/categerySlice';
 import ShoppingCart from './ShoppingCart';
 import LangugeSelection from './LangugeSelection';
-=======
+
 import ShoppingCartSharpIcon from '@mui/icons-material/ShoppingCartSharp';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import { useSelector, useDispatch } from 'react-redux';
-import { getCategery } from '../Store/categerySlice';
->>>>>>> 556e8886229930c99aa5685fe9f9e97519aa12b1
+
+
+
+
 
 
 const NavBar = () => {
@@ -40,15 +34,10 @@ const NavBar = () => {
     const category = useSelector(state => state.category.data)
     const wishlistdata = useSelector(state => state.wishlist);
 
-<<<<<<< HEAD
     const { t } = useTranslation();
-
-
 
     console.log("navbar rendered")
 
-=======
->>>>>>> 556e8886229930c99aa5685fe9f9e97519aa12b1
     useEffect(() => {
         dispatch(getCategery());
     }, [])
@@ -81,44 +70,31 @@ const NavBar = () => {
 
                     <Button variant='Text' onClick={productsHandller}>
                         <Typography sx={{ typography: { sm: 'body1', xs: 'body2' } }}>
-<<<<<<< HEAD
                             {t('allproducts')}
-=======
-                            All Products
->>>>>>> 556e8886229930c99aa5685fe9f9e97519aa12b1
                         </Typography>
                     </Button>
 
                     <Box sx={{ flexGrow: 1 }}></Box>
-<<<<<<< HEAD
-                    <Box sx={{ minWidth: 120, color: "white", marginBlock: "1%" }}>
+
+                    <Box sx={{ minWidth: 120, color: "white", minHeight: 50 }}>
                         <LangugeSelection />
                     </Box>
-=======
->>>>>>> 556e8886229930c99aa5685fe9f9e97519aa12b1
                     <IconButton color="inherit" onClick={wishlistHandller}  >
                         <Badge badgeContent=' ' variant="dot" color='error' invisible={wishlistdata.length <= 0}>
                             <FavoriteBorderIcon />
                         </Badge>
                     </IconButton>
                     <IconButton color="inherit" onClick={cartHandller}>
-<<<<<<< HEAD
                         <ShoppingCart cartItemCountLength={cartItemCount.length} />
-=======
-                        <Badge badgeContent={cartItemCount.length} style={{ backgroundColor: "black", color: "#fdd931" }}>
-                            <ShoppingCartSharpIcon />
-                        </Badge>
->>>>>>> 556e8886229930c99aa5685fe9f9e97519aa12b1
                     </IconButton>
                 </Toolbar>
                 <Box sx={{ display: { xs: 'none', sm: 'flex' }, alignItems: 'center', backgroundColor: "#232f3e", color: "white", }}>
                     <Grid container style={{ display: { xs: 'flex', md: 'none' }, backgroundColor: "#232f3e", color: "white", justifyContent: "flex-start", position: "relative" }}>
                         {category.length > 0 ? category.map((item, index) => <Grid item key={index}><Button variant='Text' onClick={() => categoryHandller(item)}>
-<<<<<<< HEAD
+
                             {t(`${item}`)}
-=======
-                            {item}
->>>>>>> 556e8886229930c99aa5685fe9f9e97519aa12b1
+
+
                         </Button></Grid>) : ''}
                     </Grid>
                 </Box>
@@ -130,23 +106,14 @@ const NavBar = () => {
                                 aria-controls="panel1a-content"
                                 id="panel1a-header"
                             >
-<<<<<<< HEAD
                                 <Typography>{t('Category')}</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
-                                {category.length > 0 ? category.map((item, index) => <Grid item key={index}><Button variant='Text' onClick={() => categoryHandller(item)} style={{ textTransform: "none" }}>
-                                    {t(`${item}`)}
-=======
-                                <Typography>Category</Typography>
-                            </AccordionSummary>
-                            <AccordionDetails>
                                 {category.length > 0 ? category.map((item, index) => <Grid item key={index}><Button variant='Text' onClick={() => categoryHandller(item)}>
-                                    {item}
->>>>>>> 556e8886229930c99aa5685fe9f9e97519aa12b1
+                                    {t(`${item}`)}
                                 </Button></Grid>) : ''}
                             </AccordionDetails>
                         </Accordion>
-
                     </Grid>
                 </Box>
             </AppBar>

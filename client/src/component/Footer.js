@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import React from 'react';
 import { Box, Button, Grid, Typography } from '@mui/material';
 import { Link } from "react-scroll";
@@ -20,14 +20,6 @@ function Footer() {
             </Grid>
         </Grid>
 
-=======
-import React from 'react'
-
-function Footer() {
-    return (
-        <div style={{ backgroundColor: "#232f3e" }}>Footer</div>
->>>>>>> 556e8886229930c99aa5685fe9f9e97519aa12b1
     )
 }
-
 export default Footer

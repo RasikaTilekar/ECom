@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
-import { langSelected } from '../Store/langSlice';
-
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import NativeSelect from '@mui/material/NativeSelect';
+
 import Select from '@mui/material/Select';
 import i18next from 'i18next';
 
@@ -23,7 +21,7 @@ const LangugeSelection = React.memo(() => {
         i18next.changeLanguage(e.target.value)
     }
     return (
-        <FormControl fullWidth style={{ color: "white", borderColor: "white" }}>
+        <FormControl fullWidth style={{ color: "white", borderColor: "white", padding: '0px', marginTop: "1%" }}>
             <InputLabel id="demo-simple-select-label" style={{ color: "white", borderColor: "white" }}>Language</InputLabel>
             <Select
                 value={lang}

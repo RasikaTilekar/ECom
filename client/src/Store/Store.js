@@ -7,6 +7,7 @@ import categerySlice from './categerySlice';
 import jwellerySlice from './jwellerySlice';
 import electronicsSlice from './electronicsSlice';
 import wishlistSlice from "./wishlistSlice";
+import langSlice from './langSlice';
 
 const store = configureStore({
     reducer: {
@@ -15,7 +16,8 @@ const store = configureStore({
         category: categerySlice,
         jwellery: jwellerySlice,
         electronics: electronicsSlice,
-        wishlist: wishlistSlice
+        wishlist: wishlistSlice,
+        langSelect: langSlice
     }
 })
 
